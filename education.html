@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experience Table</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+        background-color: #fff;
+      }
+
+      .maincontent {
+        width: 100%;
+        max-width: 800px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+        border-radius: 8px;
+        overflow-x: auto;
+        margin-bottom: 20px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 500px;
+      }
+
+      th,
+      td {
+        padding: 12px 15px;
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        text-align: center;
+        font-size: 16px;
+      }
+
+      th {
+        background-color: #f0f0f0;
+      }
+
+      span {
+        color: rgba(20, 90, 100, 0.8);
+        font-weight: bold;
+      }
+
+      @media (max-width: 600px) {
+        th,
+        td {
+          padding: 10px 8px;
+          font-size: 14px;
+        }
+
+        table {
+          min-width: 100%;
+        }
+      }
+
+      p {
+        font-weight: 900;
+        font-size: 16px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="maincontent">
+      <table>
+        <tr>
+          <th>Year</th>
+          <th>Platform</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>2024</td>
+          <td><span>W3Schools</span> Website</td>
+          <td>HTML, CSS, Saas, Bootstrap, JS, Python, Java</td>
+        </tr>
+        <tr>
+          <td>2025</td>
+          <td><span>CISCO</span></td>
+          <td>Networking, CyberSecurity</td>
+        </tr>
+        <tr>
+          <td>2025</td>
+          <td><span>ALX</span> Africa</td>
+          <td>Basics of Full Stack Dev</td>
+        </tr>
+        <tr>
+          <td>2025</td>
+          <td><span>AWS</span> Safaricom</td>
+          <td>Basics of AWS and Networking</td>
+        </tr>
+      </table>
+    </div>
+
+    <p>Copyright &copy; 2025</p>
+  </body>
+</html>

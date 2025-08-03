@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sir Carloz Portfolio</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #f8f9fa;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 10px;
+        text-align: center;
+      }
+
+      h6 {
+        text-transform: capitalize;
+        font-weight: 900;
+        font-size: 30px;
+        margin: 30px 0 15px;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+      }
+
+      h2 {
+        font-size: 20px;
+        padding: 10px 0 5px;
+      }
+
+      p {
+        font-size: 16px;
+        padding: 0 10px;
+      }
+
+      span {
+        color: rgba(20, 90, 100, 1);
+      }
+
+      .scroll-container {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 10px;
+      }
+
+      .items {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 20px;
+        justify-content: flex-start;
+        width: max-content;
+        min-width: 100%;
+      }
+
+      .items::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      .items::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+      }
+
+      .content,
+      .content2 {
+        flex: 0 0 auto;
+        width: 250px;
+        height: 280px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        scroll-snap-align: start;
+        transition: transform 0.3s ease;
+      }
+
+      .content:hover {
+        transform: scale(0.95);
+      }
+
+      .content2 {
+        position: relative;
+        overflow: hidden;
+        padding: 0;
+        border: none;
+      }
+
+      .content2 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 2s ease;
+      }
+
+      .content2:hover img {
+        transform: scale(1.1);
+      }
+
+      .overlay {
+        display: flex;
+        border-radius: 2%;
+        cursor: pointer;
+        position: absolute;
+        color: white;
+        background-color: rgba(20, 90, 100, 0.8);
+        width: 100%;
+        height: 0;
+        z-index: 100;
+        flex-direction: column;
+        bottom: 0;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+        transition: height 0.5s ease;
+      }
+
+      .overlay p {
+        font-size: 22px;
+        font-weight: 700;
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .content2:hover .overlay {
+        height: 100%;
+      }
+
+      footer {
+        margin-top: 50px;
+        font-weight: 900;
+        font-size: 18px;
+      }
+
+      @media (max-width: 768px) {
+        h6 {
+          font-size: 24px;
+        }
+
+        h2 {
+          font-size: 16px;
+        }
+
+        p {
+          font-size: 14px;
+        }
+
+        .overlay p {
+          font-size: 18px;
+        }
+
+        .content,
+        .content2 {
+          width: 220px;
+          height: 240px;
+        }
+      }
+
+      @media (max-width: 400px) {
+        h6 {
+          font-size: 20px;
+        }
+
+        h2 {
+          font-size: 14px;
+        }
+
+        p {
+          font-size: 13px;
+        }
+
+        footer {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Services Section -->
+    <h6><span>My</span> Services</h6>
+    <div class="scroll-container">
+      <div class="items">
+        <div class="content">
+          <h2><span>Web</span> Development</h2>
+          <p>Responsive, SEO-friendly websites</p>
+        </div>
+        <div class="content">
+          <h2><span>UI/UX</span> Design</h2>
+          <p>Clean, intuitive user interfaces</p>
+        </div>
+        <div class="content">
+          <h2><span>API</span> Integration</h2>
+          <p>RESTful services and real-time apps</p>
+        </div>
+        <div class="content">
+          <h2><span>Testing</span> & Debugging</h2>
+          <p>Finding and fixing bugs efficiently</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Work Section -->
+    <h6><span>My</span> Work</h6>
+    <div class="scroll-container">
+      <div class="items">
+        <div class="content2">
+          <img src="Screenshot_20250725-115914_Chrome.jpg" alt="Project 1" />
+          <div class="overlay"><p>View</p></div>
+        </div>
+        <div class="content2">
+          <img src="Screenshot_20250729-183204_Chrome.jpg" alt="Project 2" />
+          <div class="overlay"><p>View</p></div>
+        </div>
+        <div class="content2">
+          <img src="Screenshot_20250729-183500_LetsView.jpg" alt="Project 3" />
+          <div class="overlay"><p>View</p></div>
+        </div>
+        <div class="content2">
+          <img src="Screenshot_20250729-183541_Scrcpy Android.jpg" alt="Project 4" />
+          <div class="overlay"><p>View</p></div>
+        </div>
+      </div>
+    </div>
+
+    <footer>&copy; 2025 Sir Carloz</footer>
+  </body>
+</html>

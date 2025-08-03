@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Sidebar Fixed</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 20vw;
+      background-color: #fff;
+      border-right: 1px solid lightgray;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+      overflow-y: auto;
+      transition: width 0.3s ease;
+    }
+
+    .sidebar p {
+      font-size: 25px;
+      font-weight: 700;
+      padding: 15px;
+      cursor: pointer;
+    }
+
+    .sidebar nav ul {
+      list-style: none;
+      display: block;
+    }
+
+    .sidebar nav ul li {
+      padding: 20px;
+      font-size: 18px;
+      cursor: pointer;
+      font-family: "Times New Roman", Times, serif;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .sidebar nav ul li:hover {
+      background-color: rgba(20, 90, 100, 0.8);
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    nav ul li.active {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+    }
+
+    iframe {
+      margin-left: 20vw;
+      width: 80vw;
+      height: 100vh;
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    /* ✅ Collapsed style for sidebar */
+    .collapsed {
+      width: 40px !important;
+    }
+
+    .collapsed ul {
+      display: none;
+    }
+
+    /* ✅ Responsive Fixes for Small Screens */
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 60vw;
+      }
+
+      iframe {
+        margin-left: 60vw;
+        width: 40vw;
+      }
+
+      .sidebar.collapsed {
+        width: 40px !important;
+      }
+
+      .sidebar.collapsed + iframe {
+        margin-left: 40px !important;
+        width: calc(100vw - 40px) !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar" id="sidebar">
+    <nav>
+      <p id="para">≡</p>
+      <ul id="lists">
+        <li onclick="Iframe_container(event,'education.html')">Education</li>
+        <li onclick="Iframe_container(event,'skills.html')">Skills</li>
+        <li onclick="Iframe_container(event,'experience.html')">Experience</li>
+      </ul>
+    </nav>
+  </div>
+
+  <iframe src="education.html" id="Iframe"></iframe>
+
+  <script>
+    let button_toggle = document.getElementById("para");
+    let Iframe_content = document.getElementById("Iframe");
+    let content = document.getElementById("sidebar");
+    let items = document.getElementById("lists");
+    let collapse = true;
+
+    button_toggle.addEventListener("click", function () {
+      if (collapse) {
+        content.classList.add("collapsed");
+        items.style.display = "none";
+        Iframe_content.style.marginLeft = "40px";
+        Iframe_content.style.width = "calc(100vw - 40px)";
+      } else {
+        content.classList.remove("collapsed");
+        items.style.display = "block";
+        if (window.innerWidth <= 768) {
+          content.style.width = "60vw";
+          Iframe_content.style.marginLeft = "60vw";
+          Iframe_content.style.width = "40vw";
+        } else {
+          content.style.width = "20vw";
+          Iframe_content.style.marginLeft = "20vw";
+          Iframe_content.style.width = "80vw";
+        }
+      }
+      collapse = !collapse;
+    });
+
+    function Iframe_container(event, page) {
+      event.preventDefault();
+      Iframe_content.src = page;
+      document.querySelectorAll("nav ul li").forEach((link) => {
+        link.classList.remove("active");
+      });
+      event.currentTarget.classList.add("active");
+
+      // Auto collapse on small screen after selection
+      if (window.innerWidth <= 768) {
+        document.getElementById("sidebar").classList.add("collapsed");
+        items.style.display = "none";
+        Iframe_content.style.marginLeft = "40px";
+        Iframe_content.style.width = "calc(100vw - 40px)";
+        collapse = true;
+      }
+    }
+  </script>
+</body>
+</html>

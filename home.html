@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carloz Dev</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  />
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      background-image: url('pexels-andrew-6633920.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(85%);
+      scroll-behavior: smooth;
+      text-align: center;
+    }
+
+    h6 {
+      color: white;
+      font-size: 24px;
+      font-family: 'Trebuchet MS', sans-serif;
+      margin-bottom: 10px;
+    }
+
+    h5 {
+      color: white !important;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .span_1 {
+      color: lightseagreen !important;
+      font-weight: bold;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotateY(0deg);
+      }
+      to {
+        transform: rotateY(180deg);
+      }
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      color: white !important;
+      animation: spin 3s infinite;
+      width: 80%;
+      max-width: 300px;
+      height: 200px;
+      margin-top: 20px;
+      padding: 10px;
+    }
+
+    .container:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .static {
+      animation: spin 3s infinite;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: lightblue;
+    }
+
+    @media screen and (max-width: 480px) {
+      h5 {
+        font-size: 24px;
+      }
+
+      h6 {
+        font-size: 18px;
+      }
+
+      .fa-whatsapp {
+        font-size: 1.5rem;
+      }
+
+      .container {
+        width: 90%;
+        height: auto;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h6>Hey there!, It's me</h6>
+  <h5>Carloz</h5>
+  <h6>And I'm A <span class="span_1">Frontend</span> Developer</h6>
+  <div class="container" title="Carloz Dev">
+    <h6 class="static">
+      <a href="http://luxury-semolina-aca531.netlify.app" target="_blank">Get Intouch</a>
+    </h6>
+    <p class="static">With the best Frontend dev</p>
+    <p class="static">
+      <a
+        href="http://luxury-semolina-aca531.netlify.app"
+        target="_blank"
+        style="text-decoration: underline !important; color: red !important; font-weight: bold;"
+        >Click here</a
+      >
+    </p>
+  </div>
+</body>
+</html>
