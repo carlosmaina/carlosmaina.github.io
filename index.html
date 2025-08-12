@@ -3,143 +3,389 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Carloz Web Developer Site." />
-    <meta
-      name="keywords"
-      content="Fetching Data From API's, Unit Testing, Web Development, Networking"
-    />
-    <meta name="author" content="Carlos Maina" />
-    <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="Web Development" />
-    <meta
-      property="og:description"
-      content="Best Frontend Web Dev with quality services!"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
     <link rel="icon" href="pexels-andrew-6633920.jpg" />
-    <title>Portfolio</title>
+    <title>Portifolio</title>
     <style>
       * {
-        margin: 0;
         padding: 0;
-        box-sizing: border-box;
+        margin: 0;
       }
-
-      body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        overflow-x: hidden;
-      }
-
-      .header nav ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;
-        overflow-x: auto;
-        white-space: nowrap;
-        gap: 5px;
-        padding: 10px 15px;
-        width: 100%;
-        position: fixed;
-        top: 0;
-        z-index: 1000;
-        background-color: rgba(20, 90, 100, 1);
-        scrollbar-width: none; /* Firefox */
-      }
-
-      .header nav ul::-webkit-scrollbar {
-        display: none; /* Chrome/Safari */
-      }
-
-      .header nav ul li {
-        display: inline-block;
-        list-style: none;
-        flex-shrink: 0;
-      }
-
-      .header nav ul li a {
+      header {
         position: relative;
-        text-decoration: none;
-        font-size: 16px;
-        padding: 8px 12px;
-        color: white;
-        transition: background-color 0.3s;
+        text-transform: capitalize;
+        letter-spacing: -3.6px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 40px;
+        font-family: sans-serif;
       }
-
-      nav ul li a::after {
-        content: '';
+      span {
+        color: darkslategray;
+      }
+      h2 {
+        font-size: 25px;
+      }
+      .overlay {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
         position: absolute;
-        left: 0;
-        bottom: 0;
+        transition: transform 0.5s ease;
         width: 100%;
-        height: 2px;
-        background-color: white;
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.3s ease;
+        color: #fff;
+        height: 100vh;
+        transform: scale(0, 0);
+        transform-origin: bottom;
+        overflow: hidden;
+        z-index: 100;
+        backdrop-filter: blur(5px);
+        background-color: rgba(0, 0, 0, 0.85);
       }
-
-      nav ul li.active a::after {
-        transform: scaleX(1);
-      }
-
-      nav ul li.active a,
-      .header nav ul li a:hover {
-        background-color: rgba(0, 0, 0, 0.3);
-        border-radius: 4px;
-      }
-
-      i {
-        color: white;
-        margin-right: 5px;
-      }
-
-      iframe {
-        margin-top: 60px;
-        width: 100%;
-        height: calc(100vh - 60px);
+      button {
+        margin: 40px;
+        width: 100px;
+        border-radius: 5%;
         border: none;
-        scroll-behavior: smooth;
-        background-color: #f5f5f5;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        cursor: pointer;
+        height: 70px;
+      }
+      button:hover {
+        background-color: darkslategray;
+      }
+      .content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .para1:hover {
+        color: brown;
+      }
+      h6 {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        padding: 20px;
+        cursor: pointer;
+      }
+      .overlay p {
+        font-size: 25px;
+        letter-spacing: normal;
+      }
+      .open:hover {
+        color: brown;
+      }
+      img {
+        border-radius: 50%;
+        transition: transform 1s ease;
+        width: 200px;
+      }
+      img:hover {
+        transform: scale(0.9, 0.9);
+        transition: transform 1s ease;
+      }
+      nav ul {
+        display: flex;
+        list-style: none;
+        flex-direction: column;
+        color: #fff;
+        justify-content: center;
+        align-items: end;
+        font-size: 25px;
+        background-color: darkslategray;
+        width: 100%;
+        height: 50px;
+        z-index: 100;
+        position: fixed;
+      }
+      nav ul li {
+        padding: 20px;
+        font-size: 30px;
+        position: relative;
+        font-weight: 1000;
+        cursor: pointer;
+        width: 5px;
+        height: 50px;
+      }
+      /*nav ul li:hover .dropdown {
+        display: flex; }*/
+      nav ul .dropdown {
+        display: flex;
+        gap: 10px;
+        width: 100px;
+        cursor: pointer;
+        height: 100px;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+        flex-direction: column;
+        transform: scale(0, 0);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+        font-size: 18px;
+        top: 0;
+        margin-top: 40px;
+        right: 0;
+        position: absolute;
+        z-index: 100;
+        background-color: #fff;
+        color: rgba(0, 0, 0, 0.8);
+      }
+      nav ul p:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+      }
+      nav ul li .dropdown p {
+        padding: 10px;
+      }
+      .states {
+        display: flex;
+        position: relative;
+        cursor: pointer;
+        flex-direction: row;
+        font-size: 18px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        width: 200px;
+        height: 50px;
+        background-color: #fff;
+        border-radius: 2%;
+        border-left: 4px solid darkslategray;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+      }
+      .color {
+        width: 200px;
+        height: 50px;
+        transform: scale(0, 0);
+        transition: transform 0.5s ease;
+        overflow: hidden;
+        transform-origin: left;
+        position: absolute;
+        z-index: 100;
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+      .states:hover .color {
+        transform: scale(1, 1);
+      }
+      @media (max-width: 480px) {
+        img {
+          width: 100px;
+        }
+        nav ul li {
+          padding: 10px;
+        }
+        .overlay p {
+          font-size: 16px;
+        }
+        header {
+          font-size: 20px;
+        }
+        @media (max-width: 792px) {
+          img {
+            width: 150px;
+          }
+          nav ul li {
+            padding: 15px;
+          }
+          .overlay p {
+            font-size: 18px;
+          }
+          header {
+            font-size: 20px;
+          }
+        }
+      }
+      /* Upgraded overlay2 */
+      .overlay2 {
+        display: flex;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        height: 100vh;
+        z-index: 200;
+        background-color: rgba(0, 0, 0, 0.75);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: scale(0, 0);
+        transition: transform 0.3s ease;
+        backdrop-filter: blur(5px);
+      }
+      .overlay2 form {
+        background: #fff;
+        padding: 25px;
+        border-radius: 15px;
+        width: 50%;
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.75);
+        animation: fadeInUp 0.4s ease forwards;
+      }
+      .overlay2 h3 {
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 22px;
+        font-family: "Segoe UI", sans-serif;
+        color: darkslategray;
+      }
+      .overlay2 input,
+      .overlay2 textarea {
+        padding: 12px;
+        font-size: 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        outline: none;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+      .overlay2 input:focus,
+      .overlay2 textarea:focus {
+        border-color: darkslategray;
+        box-shadow: 0 0 6px rgba(47, 79, 79, 0.4);
+      }
+      .overlay2 button {
+        padding: 12px;
+        background: darkslategray;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background 0.3s ease;
+      }
+      .overlay2 button:hover {
+        background: #2b4a4a;
+      }
+      .overlay2 h6 {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 26px;
+        cursor: pointer;
+        color: #fff;
+        transition: transform 0.2s ease;
+      }
+      .overlay2 h6:hover {
+        transform: scale(1.2);
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
     </style>
   </head>
-
   <body>
-    <div class="header">
-      <nav>
-        <ul>
-          <li onclick="Iframe_container(event,'home.html')">
-            <a href="#"><i class="fa fa-home"></i>Home</a>
-          </li>
-          <li onclick="Iframe_container(event,'projects.html')">
-            <a href="#">Portfolio</a>
-          </li>
-          <li onclick="Iframe_container(event,'message.html')">
-            <a href="#">Contact</a>
-          </li>
-          <li onclick="Iframe_container(event,'about.html')">
-            <a href="#">About</a>
-          </li>
-        </ul>
-      </nav>
+    <nav>
+      <ul>
+        <li id="toggle" onclick="dropdown_toggle()">≡</li>
+        <div class="dropdown" id="dropdown">
+          <p onclick="open_page()">Visit &nbsp;→</p>
+          <p onclick="open_overlay2()">Message</p>
+          <p>Contact</p>
+        </div>
+      </ul>
+    </nav>
+    <header>
+      <div class="overlay" id="overlay">
+        <p id="para"></p>
+        <h6 id="close" onclick="close_overlay()">×</h6>
+        <p>Here is the whole overview of my Work</p>
+        <p
+          class="para1"
+          style="padding: 10px; cursor: pointer"
+          onclick="open_page()"
+        >
+          Visit &nbsp;→
+        </p>
+      </div>
+      <h1 style="margin-top: 50px"><span>Web</span> dev</h1>
+    </header>
+    <div class="content">
+      <img src="Screenshot_3-8-2025_113633_img.freepik.com.jpeg" alt="" />
+      <p
+        style="font-size: 22px; font-family: 'Trebuchet MS', Arial, sans-serif"
+      >
+        Carlos Maina
+      </p>
+      <!-- upgraded second overlay -->
+      <div class="overlay2" id="overlay2">
+        <h6 onclick="close_overlay2()">×</h6>
+        <form onsubmit="sendMessage(event)">
+          <h3 style="text-align: center">Send a Message</h3>
+          <input type="text" id="name" placeholder="Your Name" required />
+          <input type="email" id="email" placeholder="Your Email" required />
+          <textarea
+            id="message"
+            rows="4"
+            placeholder="Type your message..."
+            required
+          ></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+      <div class="states" onclick="open_overlay2()">
+        <div class="color"></div>
+        <p>Ask a Question?</p>
+      </div>
+      <button onclick="open_overlay(),prompt_action()">Get Started</button>
     </div>
-
-    <iframe src="home.html" id="Iframe"></iframe>
-
     <script>
-      let Iframe_content = document.getElementById("Iframe");
-
-      function Iframe_container(event, page) {
-        event.preventDefault();
-        Iframe_content.src = page;
-        document.querySelectorAll("nav ul li").forEach((link) => {
-          link.classList.remove("active");
-        });
-        event.currentTarget.classList.add("active");
+      let item = document.getElementById("overlay");
+      let item2 = document.getElementById("overlay2");
+      let toggle_button = document.getElementById("toggle");
+      let dropped = document.getElementById("dropdown");
+      let collapsed = false;
+      function dropdown_toggle() {
+          if (collapsed) {
+            dropped.style.transform = "scale(1,1)";
+          } else {
+            dropped.style.transform = "scale(0,0)";
+          }
+          collapsed = !collapsed;
+      }
+      function open_overlay2() {
+        item2.style.transform = "scale(1,1)";
+      }
+      function close_overlay2() {
+        item2.style.transform = "scale(0,0)";
+      }
+      function sendMessage(e) {
+        e.preventDefault();
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let msg = document.getElementById("message").value;
+        alert(`Message sent!\nName: ${name}\nEmail: ${email}\nMessage: ${msg}`);
+        close_overlay2();
+      }
+      function prompt_action() {
+        const val = prompt("What is your name");
+        let state = document.getElementById("para");
+        if (val === null) {
+          state.innerHTML = "Welcome 🥳";
+        } else {
+          state.innerHTML = `Welcome ${val} 🥳`;
+        }
+      }
+      function close_overlay() {
+        item.style.transform = "scale(0,0)";
+      }
+      function open_overlay() {
+        item.style.transform = "scale(1,1)";
+      }
+      function open_page() {
+        window.location.replace("main.html");
       }
     </script>
   </body>

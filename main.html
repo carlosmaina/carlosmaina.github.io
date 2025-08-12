@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Carloz Web Developer Site." />
+    <meta
+      name="keywords"
+      content="Fetching Data From API's, Unit Testing, Web Development, Networking"
+    />
+    <meta name="author" content="Carlos Maina" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Web Development" />
+    <meta
+      property="og:description"
+      content="Best Frontend Web Dev with quality services!"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="pexels-andrew-6633920.jpg" />
+    <title>Portfolio</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        overflow-x: hidden;
+      }
+
+      .header nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 5px;
+        padding: 10px 15px;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        background-color: rgba(20, 90, 100, 1);
+        scrollbar-width: none; /* Firefox */
+      }
+
+      .header nav ul::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+      }
+
+      .header nav ul li {
+        display: inline-block;
+        list-style: none;
+        flex-shrink: 0;
+      }
+
+      .header nav ul li a {
+        position: relative;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 8px 12px;
+        color: white;
+        transition: background-color 0.3s;
+      }
+
+      nav ul li a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background-color: white;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+
+      nav ul li.active a::after {
+        transform: scaleX(1);
+      }
+
+      nav ul li.active a,
+      .header nav ul li a:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 4px;
+      }
+
+      i {
+        color: white;
+        margin-right: 5px;
+      }
+
+      iframe {
+        margin-top: 60px;
+        width: 100%;
+        height: calc(100vh - 60px);
+        border: none;
+        scroll-behavior: smooth;
+        background-color: #f5f5f5;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="header">
+      <nav>
+        <ul>
+          <li onclick="Iframe_container(event,'home.html')">
+            <a href="#"><i class="fa fa-home"></i>Home</a>
+          </li>
+          <li onclick="Iframe_container(event,'projects.html')">
+            <a href="#">Portfolio</a>
+          </li>
+          <li onclick="Iframe_container(event,'message.html')">
+            <a href="#">Contact</a>
+          </li>
+          <li onclick="Iframe_container(event,'about.html')">
+            <a href="#">About</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <iframe src="home.html" id="Iframe"></iframe>
+
+    <script>
+      let Iframe_content = document.getElementById("Iframe");
+
+      function Iframe_container(event, page) {
+        event.preventDefault();
+        Iframe_content.src = page;
+        document.querySelectorAll("nav ul li").forEach((link) => {
+          link.classList.remove("active");
+        });
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </body>
+</html>
